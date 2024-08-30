@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2024 at 06:33 AM
+-- Generation Time: May 16, 2024 at 02:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `restoran`
+-- Database: `kthindakogemust`
 --
 
 -- --------------------------------------------------------
@@ -137,6 +137,165 @@ INSERT INTO `hinnangud` (`id`, `nimi`, `hinnang`, `kommentaar`, `id_koht`) VALUE
 (100, 'Siouxie', 6, 'sapien iaculis congue vivamus metus arcu adipiscing molestie', '42'),
 (120, 'Tom', 7, 'Mulle meeldis.', '102');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kasutajad`
+--
+
+CREATE TABLE `kasutajad` (
+  `id` int(255) NOT NULL,
+  `kasutaja` varchar(255) NOT NULL,
+  `parool` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kasutajad`
+--
+
+INSERT INTO `kasutajad` (`id`, `kasutaja`, `parool`) VALUES
+(1, 'admin', '$2y$10$iUFt42q4uo8b1EecP983AOLk4cx5a6pBDNizS5GIbSyXSUHlbpEsu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kohad`
+--
+
+CREATE TABLE `kohad` (
+  `id` int(255) NOT NULL,
+  `nimi` varchar(255) NOT NULL,
+  `asukoht` varchar(255) NOT NULL,
+  `keskmine_hinne` float NOT NULL,
+  `hinnanute_arv` int(255) NOT NULL,
+  `tyyp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kohad`
+--
+
+INSERT INTO `kohad` (`id`, `nimi`, `asukoht`, `keskmine_hinne`, `hinnanute_arv`, `tyyp`) VALUES
+(1, 'Dock Sour Sheep Sorrel', 'Keila', 6, 1, 'hotell'),
+(2, 'White Petrolatum', 'Rapla', 3.7, 3, 'pood'),
+(3, 'Isopropyl Alcohol', 'Pärnu', 3, 1, 'soogikoht'),
+(4, 'PETROLATUM', 'Haapsalu', 3, 1, 'pood'),
+(5, 'Loratadine', 'Võru', 4.3, 3, 'hostel'),
+(6, 'verapamil hydrochloride', 'Haapsalu', 1.5, 2, 'motell'),
+(7, 'FLUDEOXYGLUCOSE F-18', 'Tallinn', 2, 1, 'motell'),
+(8, 'Acetaminophen Caffeine', 'Rakvere', 4, 1, 'pood'),
+(9, 'clopidogrel bisulfate', 'Võru', 5, 1, 'pood'),
+(10, 'Acetaminophen Aspirin', 'Rapla', 0, 0, 'hotell'),
+(11, 'FLUORIDE TREATMENT', 'Pärnu', 4, 1, 'motell'),
+(12, 'Phenol', 'Haapsalu', 6, 2, 'motell'),
+(13, 'Salicylic Acid', 'Tartu', 4.5, 4, 'hostel'),
+(14, 'Lemon', 'Tallinn', 0, 0, 'soogikoht'),
+(15, 'Echinacea Baptisia tinctoria', 'Võru', 0, 0, 'motell'),
+(16, 'Arnica Bryonia officinalis', 'Viljandi', 0, 0, 'hotell'),
+(17, 'Amoxicillin and Clavulanate Potassium', 'Rakvere', 3, 1, 'soogikoht'),
+(18, 'Diphenhydramine HCl', 'Viljandi', 0, 0, 'soogikoht'),
+(19, 'Dextromethorphan Hydrobromide and Menthol', 'Võru', 7, 1, 'pood'),
+(20, 'lansoprazole', 'Rakvere', 0, 0, 'hotell'),
+(21, 'SODIUM CHLORIDE', 'Tartu', 2, 1, 'hostel'),
+(22, 'Piperonyl Pyrethrum Extract', 'Keila', 2, 1, 'pood'),
+(23, 'sus scrofa small intestine mucosa lymph follicle', 'Pärnu', 8, 1, 'motell'),
+(24, 'Citalopram Hydrobromide', 'Keila', 2, 1, 'motell'),
+(25, 'ACEPHENYLEPHRINE HYDROCHLORIDE', 'Viljandi', 0, 0, 'hostel'),
+(26, 'Escitalopram Oxalate', 'Rapla', 3, 1, 'motell'),
+(27, 'Dextromethorphan hydrobromide', 'Rakvere', 4, 1, 'hotell'),
+(29, 'Doxycycline hyclate', 'Pärnu', 5.3, 4, 'hotell'),
+(30, 'HYDROCORTISONE', 'Rapla', 0, 0, 'motell'),
+(31, 'Echinacea Purpurea Perennis', 'Rakvere', 4, 1, 'motell'),
+(32, 'Hypothalamus B12', 'Keila', 0, 0, 'soogikoht'),
+(33, 'Triticum aestivum digitata', 'Viljandi', 0, 0, 'soogikoht'),
+(34, 'Sotalol Hydrochloride', 'Rapla', 0, 0, 'hotell'),
+(35, 'ETHYL ALCOHOL', 'Võru', 3, 2, 'hostel'),
+(36, 'Triclosan', 'Võru', 0, 0, 'soogikoht'),
+(37, 'Aluminum Hydroxide Simethicone', 'Tartu', 5, 2, 'pood'),
+(38, 'risperidone', 'Tallinn', 0, 0, 'pood'),
+(39, 'AVOBENZONE OXYBENZONE', 'Tartu', 8.3, 3, 'motell'),
+(40, 'AVOBENZONE OCTISALATE OCTINOXATE', 'Haapsalu', 2.5, 2, 'hostel'),
+(41, 'BRYONIA ALBA', 'Võru', 6.5, 2, 'hotell'),
+(42, 'Diethylpropion hydrochloride', 'Tallinn', 6, 1, 'hostel'),
+(43, 'OCTINOXATE TITANIUM DIOXIDE', 'Rakvere', 3.7, 1, 'hostel'),
+(44, 'Tryptophan', 'Tallinn', 2, 1, 'soogikoht'),
+(45, 'Tramadol Hydrochloride', 'Haapsalu', 10, 2, 'motell'),
+(46, 'Octinoxate', 'Võru', 0, 0, 'soogikoht'),
+(47, 'sodium fluoride', 'Tallinn', 0, 0, 'motell'),
+(48, 'OXYGEN', 'Tartu', 4.3, 1, 'pood'),
+(49, 'Cockroach American', 'Tallinn', 0, 1, 'hostel'),
+(50, 'lidocaine and prilocaine', 'Tartu', 0, 1, 'pood'),
+(51, 'Propranolol Hydrochloride', 'Pärnu', 0, 0, 'hostel'),
+(52, 'Doxylamine succinate', 'Pärnu', 2, 1, 'pood'),
+(53, 'HALOPERIDOL LACTATE', 'Haapsalu', 0, 0, 'hostel'),
+(54, 'Hydroxyzine Pamoate', 'Keila', 0, 1, 'pood'),
+(55, 'Acitretin', 'Tallinn', 9, 1, 'hostel'),
+(56, 'Kali Pituitary bovine', 'Pärnu', 2, 1, 'hotell'),
+(57, 'SALICYLIC ACID', 'Võru', 9, 1, 'soogikoht'),
+(58, 'buspirone hydrochloride', 'Viljandi', 0, 0, 'motell'),
+(60, 'Triclosan', 'Viljandi', 0, 0, 'motell'),
+(61, 'Wheat Bunt', 'Tartu', 3, 1, 'hostel'),
+(62, 'somatropin', 'Tartu', 0, 0, 'motell'),
+(63, 'Piroxicam', 'Võru', 7, 2, 'soogikoht'),
+(64, 'Estradiol', 'Rapla', 0, 1, 'motell'),
+(65, 'OCTINOXATE and TITANIUM DIOXIDE', 'Tallinn', 4, 1, 'soogikoht'),
+(66, 'Pantoprazole Sodium', 'Võru', 5, 1, 'soogikoht'),
+(67, 'Beet', 'Viljandi', 5, 1, 'soogikoht'),
+(68, 'Loratadine', 'Tallinn', 0, 0, 'pood'),
+(69, 'codeine phosphate and guaifenesin', 'Haapsalu', 0, 0, 'pood'),
+(70, 'Warfarin Sodium', 'Võru', 5.5, 2, 'motell'),
+(71, 'Wart Remover Strips', 'Keila', 8, 1, 'hotell'),
+(72, 'Lisinopril', 'Tartu', 5, 1, 'hostel'),
+(73, 'donepezil hydrochloride', 'Viljandi', 3, 1, 'soogikoht'),
+(74, 'Metformin Hydrochloride', 'Keila', 1, 1, 'motell'),
+(75, 'Sumatriptan', 'Tartu', 0, 0, 'hotell'),
+(76, 'methscopolamine bromide', 'Haapsalu', 0, 0, 'hostel'),
+(77, 'TITANIUM DIOXIDE', 'Võru', 0, 0, 'pood'),
+(78, 'fluoxetine hydrochloride', 'Keila', 5, 1, 'motell'),
+(79, 'OCTINOXATE', 'Tartu', 8, 1, 'soogikoht'),
+(80, 'pravastatin sodium', 'Rapla', 0, 0, 'pood'),
+(81, 'Oxymetazoline Hydrochloride', 'Tartu', 0, 1, 'hotell'),
+(82, 'Povidone Iodine', 'Võru', 0, 0, 'hostel'),
+(83, 'Chloroxylenol', 'Pärnu', 0, 1, 'hostel'),
+(84, 'Haloperidol Decanoate', 'Rakvere', 4, 1, 'hostel'),
+(85, 'RIBAVIRIN', 'Tallinn', 0, 0, 'hostel'),
+(86, 'Levothyroxine Sodium', 'Tallinn', 2, 1, 'motell'),
+(87, 'Eplerenone', 'Keila', 0, 1, 'hostel'),
+(88, 'Cefdinir', 'Tallinn', 0, 1, 'hotell'),
+(89, 'conjugated estrogens', 'Keila', 0, 1, 'motell'),
+(90, 'Ibuprofen', 'Rapla', 3, 1, 'soogikoht'),
+(91, 'Clonidine Hydrochloride', 'Tartu', 0, 1, 'pood'),
+(92, 'clindamycin phosphate', 'Võru', 0, 1, 'hotell'),
+(93, 'Camphor Menthol Methyl Salicylate', 'Viljandi', 0, 1, 'pood'),
+(94, 'OCTINOXATE TITANIUM DIOXIDE', 'Tartu', 3.7, 1, 'hostel'),
+(95, 'ALUMINUM CHLOROHYDRATE', 'Keila', 10, 1, 'motell'),
+(96, 'OCTINOXATE and OXYBENZONE', 'Rakvere', 2, 1, 'motell'),
+(97, 'Norgestimate and ethinyl estradiol', 'Haapsalu', 5.3, 3, 'pood'),
+(98, 'Naproxen', 'Haapsalu', 5.5, 2, 'pood'),
+(99, 'Zolpidem Tartrate', 'Pärnu', 4, 1, 'motell');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tyybid`
+--
+
+CREATE TABLE `tyybid` (
+  `id` int(255) NOT NULL,
+  `tyyp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tyybid`
+--
+
+INSERT INTO `tyybid` (`id`, `tyyp`) VALUES
+(1, 'hotell'),
+(2, 'hostel'),
+(3, 'motell'),
+(4, 'pood'),
+(5, 'soogikoht');
+
 --
 -- Indexes for dumped tables
 --
@@ -148,6 +307,24 @@ ALTER TABLE `hinnangud`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kasutajad`
+--
+ALTER TABLE `kasutajad`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kohad`
+--
+ALTER TABLE `kohad`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tyybid`
+--
+ALTER TABLE `tyybid`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -156,6 +333,24 @@ ALTER TABLE `hinnangud`
 --
 ALTER TABLE `hinnangud`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
+--
+-- AUTO_INCREMENT for table `kasutajad`
+--
+ALTER TABLE `kasutajad`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `kohad`
+--
+ALTER TABLE `kohad`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+
+--
+-- AUTO_INCREMENT for table `tyybid`
+--
+ALTER TABLE `tyybid`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
