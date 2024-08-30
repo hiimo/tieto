@@ -7,7 +7,7 @@
         $row = mysqli_fetch_assoc($valitud_koht);
 
     } else {
-        header("Location: /kontroltoo/");
+        header("Location: /tieto/");
     }
 
 ?>
@@ -36,7 +36,7 @@
     <div class="container">
         <h1> hinda  <?php echo $row['nimi']; ?>i</h1>
         <hr>
-        <a href="/KT/">tagaso</a>
+        <a href="/tieto">tagaso</a>
         <br>
         <br>
         <form method="post">
@@ -84,16 +84,16 @@
 
             if ($yhendus -> query($lisahinnang) === TRUE){
                 echo "hinnagn listatud.";
-                header("Location: /KT/");
+                header("Location: /tieto/");
                 exit;
             } else {
-                echo "valee bzz  " . $lisahinnang . "<br>" . $yhendus->error;
+                echo "vale " . $lisahinnang . "<br>" . $yhendus->error;
             }
         }
         ?>
 
         <hr>
-        <h2>teised hinnangud sellele restole vms</h2>
+        <h2>teised hinnangud sellele restoranile</h2>
         <?php
         $hinnangud_paring2 = "SELECT * FROM hinnangud WHERE id_koht = '$valitudkohtid'";
         $result_hinnangud = $yhendus -> query($hinnangud_paring2);
